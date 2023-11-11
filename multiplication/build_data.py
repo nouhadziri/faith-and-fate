@@ -26,12 +26,12 @@ def cartesian(a_num_digit, b_num_digit):
     return inputs
 
 def sample(a_num_digit, b_num_digit, max_sequence):
-    inputs = []
+    inputs = set()
     while len(inputs) < max_sequence:
         a, b = random_n_digit(a_num_digit), random_n_digit(b_num_digit)
         if (a, b) not in inputs:
-            inputs.append((a, b))
-    return inputs
+            inputs.add((a, b))
+    return list(inputs)
 
 
 def count_tokens_per_example(gpt2_tokenizer, example):
